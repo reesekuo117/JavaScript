@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <input type="text" id="a"> + <input type="text" id="b">
+    <button onclick="cal()">=</button>
+    <div id="info"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function cal() {
+            const a = $('#a').val();
+            const b = $('#b').val();
+
+            // $('#info').html( a + b ); //此時為字串非數字
+            $('#info').html(parseInt(a) + parseInt(b) );    //轉為整數 //可能有bug 主要用來將字串轉換為數字用
+            $('#info').html(parseFloat(a) + parseFloat(b) );//轉為浮點數
+            $('#info').html( +a + +b );
+
+
+        }
+    </script>
+</body>
+</html>

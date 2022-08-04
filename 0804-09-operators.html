@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>關係運算子</title>
+</head>
+<body>
+    <div id="info">my info</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        // ! 可以用來做布林值的轉換 優先權最高 
+
+        console.log(!! 0);
+        console.log(!! undefined);
+        console.log(!! null);
+        console.log(!! NaN);  // not a number
+
+        //快速運算子 偷懶運算子
+        //&& 以布林值概念判斷，結果不一定為布林值
+        //只有在兩邊的運算元為true時，整個運算式的結果才為true。只要有其中一個運算元為false，就回傳false
+        console.log( 3 && 2 );  //2  true
+        console.log( 0 && 2 );  //0  true
+
+       
+
+
+        let a, b;
+
+        b = 0 && (a=7);
+        console.log(a, b);  // undefined, 0
+
+        a = undefined;
+        b = undefined;
+
+        b = 1 && (a=7);
+        console.log(a, b);  // 7, 7
+
+
+    </script>
+</body>
+</html>

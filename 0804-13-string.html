@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>字串 split</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const info = $('#info');
+        const str = 'a陳bcd陳e';
+
+        info.append( str.charAt(0) + '<br>');  //第幾個字元
+        info.append( str.charCodeAt(0) + '<br>');  //第幾個字碼
+        info.append( str.charAt(1) + '<br>');
+        info.append( str.charCodeAt(1) + '<br>');
+        info.append( String.fromCharCode(38516) + '<br>');
+
+        info.append( str.indexOf('a') + '<br>'); //indexOf子字串出現的位置
+        info.append( str.indexOf('陳') + '<br>');
+        info.append( str.indexOf('陳', 2) + '<br>'); //找第二隔陳 5
+        info.append( str.lastIndexOf('陳') + '<br>'); //子字串最後出現的位置 重後面找陳 5
+        info.append( str.indexOf('林') + '<br>'); //找不到時顯示-1
+
+        //split分割符號 以分割符號（字串）切割產生陣列。
+        info.append( str.split('陳').join('') + '<br>'); //刪除 abcde
+        info.append( str.split('陳').join('李') + '<br>'); //替換 a李bcd李e
+        info.append( str.split('').join('-') + '<br>'); //a-陳-b-c-d-陳-e
+    </script>
+</body>
+</html>

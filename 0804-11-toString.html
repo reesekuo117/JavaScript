@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>toString (轉換進位法)</title>
+</head>
+<body>
+    <div id="info"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const info = $('#info');
+        let n = 255;
+        let s = 'AB';
+
+        info.append( n.toString(16) + '<br>'); //FF
+        info.append( parseInt(s, 16) + '<br>'); //171 = 16*10+11 (16進位)
+        //A=10 B=11 
+
+
+    </script>
+</body>
+</html>
