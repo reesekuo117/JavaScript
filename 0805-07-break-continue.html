@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>	break, continue</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid gray;
+            background-color: darkcyan;
+        }
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            color: rgb(0, 0, 0);
+            background-color: rgb(131, 251, 255);
+            border: 1px solid olivedrab;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!-- <div class="ball"></div> -->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const rect =$('.rect'); //設定參照 (reference)
+
+        //  break--------------------------------------
+        for(let i=0; i<10; i++){
+            if(i>=7){
+                break;  //離開迴圈
+            }
+            const b = $(`<div class="ball">${i+1}</div>`); //建立元素
+            b.css({
+                left:i*60, 
+                top:70
+            });
+            rect.append(b);
+        }
+
+
+        //  continue-------------------------------------
+        for(let i=0; i<10; i++){
+            if(i===7){
+                continue;  //略過該輪迴圈
+            }
+            const b = $(`<div class="ball">${i+1}</div>`); //建立元素
+            b.css({
+                left:i*60, 
+                top:150
+            });
+            rect.append(b);
+        }
+
+    </script>
+</body>
+</html>
