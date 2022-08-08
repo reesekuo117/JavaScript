@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>深層複製</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="info"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const info = $('#info');
+      
+        const ar = [12,99,'aaa',['bill', 25, 'male']];
+        const ar2 = [...ar];                         //淺層拷貝
+        const ar3 = JSON.parse(JSON.stringify(ar));  //深層拷貝
+        
+        ar[0] =100;
+        ar[3][0] = 'Alex';
+
+        console.log(ar2);
+        info.append( JSON.stringify(ar2) + '<br>');
+
+        console.log(ar3);
+        info.append( JSON.stringify(ar3) + '<br>');
+
+
+
+
+        const br = ar.slice();  //淺層拷貝 first level copy
+        //console.log(br);
+   
+        const cr = JSON.stringify(ar); //深層拷貝
+        //console.log(cr);
+
+    </script>
+</body>
+</html>

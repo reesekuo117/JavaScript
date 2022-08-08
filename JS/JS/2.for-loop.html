@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for loop</title>
+</head>
+<body>
+    <script>
+        const array =[ 'a','b',2,3,4,5,6,7]
+
+        // for(let i = 0; i < array.length; i ++){
+        //     // 數學公式
+        //     console.log('i',array[i]);
+        // }
+
+        // let i = 5;
+
+        // do{
+        //     console.log('iii',i);
+
+        //     i++;
+        // }while(i < array.length)
+
+
+
+        const obj = {a:10, b:20, a:20}
+
+        console.log('a:', obj.a);
+        console.log('b:', obj.b);
+
+        obj.c = 30;
+
+        console.log(obj);
+
+        obj.a = 15;
+        console.log(obj);
+
+        // ES6
+
+        // 解構賦值
+        const newObj = {...obj , a:666, d:777}
+        delete newObj.c;
+        console.log('newObj', newObj);
+
+        for ( data in newObj){
+            console.log('key',data);
+            console.log('value',newObj[data]);
+        }
+
+        console.log(Object.keys(newObj)); 
+
+        const objKeysArray = Object.keys(newObj);
+        
+        for ( data of objKeysArray){
+            console.log('data',data);
+            console.log('value',newObj[data]);
+
+        }
+
+
+        // for( of)
+
+
+        // const myArray = ['a','b','c'];
+        // const newSliceArray = myArray.slice(1,2);
+        // console.log('newSliceArray',newSliceArray);
+
+        // const newSpliceArray = myArray.splice(索引,刪除量,[加入])
+        // const newSpliceArray = myArray.splice(2,0,'d','f');
+        // console.log('newSpliceArray',newSpliceArray);
+        // console.log('myArray',myArray);
+
+
+        const myArray = ['a','b','c'];
+        const myArray2 = myArray;
+
+        // myArray2.pop();
+
+        // console.log('myArray2',myArray2);
+        // console.log('myArray',myArray);
+
+        const myDeepArray = [ [0,1,2], [1,2,3], 'd', 'c' ];
+
+
+        // const newSliceArray = myDeepArray.slice(0);
+        // newSliceArray[3] = 'abc'
+        // newSliceArray[0][0] = 'aaa'
+        // console.log('newSliceArray',newSliceArray);
+        // console.log('myDeepArray',myDeepArray);
+
+        const newDeepArray = JSON.parse(JSON.stringify(myDeepArray))
+        console.log('newDeepArray',JSON.stringify(newDeepArray));
+        newDeepArray[3] = 'abc'
+        newDeepArray[0][0] = 'aaa'
+        console.log('newDeepArray2',newDeepArray);
+
+
+        console.log('myDeepArray',myDeepArray);
+
+
+        // const myPop = myArray.shift();
+        // console.log('myPop',myPop);
+        // console.log('myArray',myArray);
+
+        // myArray.unshift('bbb');
+        // console.log('myArray',myArray);
+    </script>
+</body>
+</html>

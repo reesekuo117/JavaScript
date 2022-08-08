@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>variable</title>
+</head>
+<body>
+
+    <div id="box"></div>
+    <script>
+        // ES5
+        
+        // console.log('x',x);
+
+        // let x = 10;
+        // ES6
+        // function father(){
+        //     // let x = 11;
+
+        //     function a(){
+        //         let x = 20;
+        //         console.log('a',x);
+        //     }
+        //     a();  
+        //     console.log('father',x);
+
+        // }
+        
+        // father()
+        
+        
+        // console.log('window',x);
+
+
+        // 主詞
+        const el = document.getElementById('box')
+        const el2 = document.getElementsByClassName('box')
+        const el3 = document.getElementsByTagName('div')
+
+        const el4 = document.querySelector('.box')
+        const el5 = document.querySelectorAll('.box')
+
+        // 動詞
+        el.innerText = '<h1>Hi</h1>';
+        
+            // console.log(1 !== '1');
+
+            // 判斷式 ?  TRUE :  FALSE
+             
+        // console.log(5 < 8 ? 'a' : 'b');
+        let x = 10;
+        const result = x < 8 ? 'a' : 'b'
+
+        // console.log('result',result);
+
+        if( 5 < 8){
+            // console.log('a');
+        }
+        else{
+            // console.log('b');
+        }
+
+        const y = '11';
+
+        // console.log('x-y:', x - y);
+
+        const url = `http://127.0.0.1:5500/member/payment/1.5.variable.html`;
+
+        const newUrl = url.split('//')
+
+        // console.log('newUrl', newUrl);
+
+
+        const newUrl2 = newUrl[1].split('/')
+        // console.log('newUrl2', newUrl2);
+
+
+        const stringArray = "0,1,2,3,4,5,6";
+
+        // console.log('str',stringArray.split(',')[3]);
+
+
+        const html = `  <li>
+                <img src="./imgs/slide1.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/slide2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/slide3.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/slide4.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/slide5.jpg" alt="">
+            </li>`;
+
+        console.log(html.indexOf('img src="'));
+        const myKeyWord = 'img src="';
+
+
+        console.log('myKeyWord',myKeyWord.length);
+        const firstSrc = html.indexOf('img src="');
+
+        const newHtml = html.slice(firstSrc)
+
+        console.log('newHtml',newHtml.substr(9));
+    </script>
+</body>
+</html>
