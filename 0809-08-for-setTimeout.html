@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>for迴圈用 let 宣告</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // 使用let宣告控制變數使美倫都有獨立變數
+        let i;
+        for(let i=0; i<7; i++){
+            setTimeout(function() {
+                console.log(i);
+            }, i*1000);
+        }
+
+        // 
+        // for(i=0; i<7; i++){
+        //     setTimeout(function() {
+        //         console.log(i);
+        //     }, i*1000);
+        // }
+
+
+        //https://medium.com/randy-chen/let-%E5%92%8C-var-%E5%9C%A8-for%E8%BF%B4%E5%9C%88%E4%B8%AD%E7%9A%84%E7%B5%90%E6%9E%9C%E5%B7%AE%E7%95%B0-54f61cdb5f48
+        
+    </script>
+</body>
+</html>

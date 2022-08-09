@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>遞迴</title>
+</head>
+<body>
+    <div id="info"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        // 遞迴 recursion 自己呼叫自己的函式
+        // 優先使用其他迴圈
+
+        const info = $('#info');
+        function rec(n){
+            if(n===1){
+                return 1 ;
+            }                     //條件只有一個中括號可省略
+            return n * rec(n-1)
+        }
+        info.append( rec(5) + '<br>');
+
+
+
+
+        // 遞迴加法：
+        // 遞迴加法就比較複雜一點，要先設定一個中止條件，也就是在num=1或是0的時候要回傳多少，之後再以累加上去。  
+        //遞迴加法
+        // function sumRecursion(num){
+        //     if( num == 1){
+        //         return 1;
+        //     }else{
+        //         const Sn = sumRecursion(num-1)+num
+        //         return Sn
+        //     }
+        // }
+
+        // console.log('遞迴加法',sumRecursion(6)) // >>21      
+    </script>
+</body>
+</html>
