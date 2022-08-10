@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>倒數計時</title>
+</head>
+<body>
+    <div id="info"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        const deadline = new Date('2022-10-14');
+
+        const info = $('#info');
+
+        const now = new Date;     //new是關鍵字
+        let ms = deadline - now;  //兩個時間點相隔時間(msec)
+
+        //let ms = deadline.gettTime() - now.gettTime();  
+        //兩個時間點相隔時間(msec) 兩種寫法一樣
+
+
+        info.html(`<h2>倒數${Math.round(ms / 86_400_000)}天</h2>`);
+
+
+        // Math.round 取整數
+
+
+        
+    </script>
+</body>
+</html>

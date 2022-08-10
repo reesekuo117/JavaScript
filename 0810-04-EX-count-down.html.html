@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>倒數計時</title>
+</head>
+<body>
+    <div id="info"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        const deadline = new Date('2022-10-14T00:00');
+        //T00:00 調整本地端時間local
+
+        const info = $('#info');
+
+        function countDown(){
+            const now = new Date;
+            let ms = deadline - now; // 兩個時間點相隔時間 (msec)
+
+            let days = parseInt(ms / 86_400_000); // 天
+            let hours = parseInt((ms % 86_400_000)/3600000); // 小時
+            let mins = parseInt((ms % 3600000)/60000); // 分鐘
+            let secs = parseInt((ms % 60000)/1000); // 分鐘
+
+            //(ms / 86_400_000)
+            //時間差(單位是豪秒)/每天86400000秒求得相差幾天
+            //((ms % 86_400_000)/3600000)
+            //
+            //((ms % 3600000)/60000)
+            //((ms % 60000)/1000)
+
+            info.html(`<h2> ${days} 天 ${hours} 時 ${mins} 分 ${secs} 秒 </h2>`)
+        }
+        setInterval(countDown, 1000);
+
+
+
+        //講義58頁有另一種解法
+
+
+        
+    </script>
+</body>
+</html>

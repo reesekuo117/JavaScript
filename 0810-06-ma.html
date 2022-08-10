@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .clock {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgb(250, 235, 207);
+            background-color: rgb(250, 235, 207);
+            border-radius: 50%;
+            /* background: url(./imgs/0138.png_860.png) 50% 50% / cover no-repeat; */
+        }
+        .hand {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+        .sec-hand {
+            /* position: absolute;
+            width: 2px;
+            height: 290px;
+            left: -1px;
+            top: -289px;
+            background-color: rgb(95, 48, 10);
+            border: 1px solid rgb(95, 48, 10);
+            border-radius: 10px; */
+
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-image: url(./imgs/mario.gif);
+            background-size: cover;
+            left: -40px;
+            top: -300px;
+        }
+        .min-hand {
+            position: absolute;
+            width: 10px;
+            height: 280px;
+            left: -5px;
+            top: -275x;
+            background-color: rgb(95, 48, 10);
+            border: 1px solid rgb(95, 48, 10);
+            border-radius: 10px;
+        }
+        .hr-hand {
+            position: absolute;
+            width: 10px;
+            height: 200px;
+            left: -5px;
+            top: -195px;
+            background-color: rgb(95, 48, 10);
+            border: 1px solid rgb(95, 48, 10);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="clock">
+        <div class="hand" id="sec-hand">
+            <div class="sec-hand"></div>
+        </div>
+        <div class="hand" id="min-hand">
+            <div class="min-hand"></div>
+        </div>
+        <div class="hand" id="hr-hand">
+            <div class="hr-hand"></div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const secHand = $('#sec-hand');
+        const minHand = $('#min-hand');
+        const hrHand = $('#hr-hand');
+
+        //secHand.css('transform', 'rotate(30deg)');
+
+        function runClock(){
+            const now = new Date;
+            let msec = now.getMilliseconds();
+            let sec = now.getSeconds();
+            let min = now.getMinutes();
+            let hr = now.getHours();
+
+            secHand.css('transform', `rotate(${sec*6 + 6/1000*msec}deg)`);
+            //360/60=6
+            minHand.css('transform', `rotate(${min*6}deg)`);
+            //360/60=6
+            hrHand.css('transform', `rotate(${hr*30 + .5*min}deg)`);
+            //360/12=30
+            //每時30deg/60分鐘=0.5
+
+            setTimeout(runClock, 30);
+        }
+        runClock();
+        
+        
+    </script>
+</body>
+</html>
