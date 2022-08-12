@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>onclick用法(JS寫法)</title>
+</head>
+<body>
+    <button onclick="myClick(event)" >click me!</button>
+    <!-- "myClick(event)"屬性內有規定寫法 event參數不可取其他名字 -->
+    <script>
+        const btn = document.querySelector('button');
+        //較舊的寫法
+        function myClick(abc){
+            console.log('123');
+            console.log(abc);
+        }
+
+        //蓋掉之前的設定
+        // btn.onclick = function(event){
+        //     console.log('456');
+        //     console.log(event);
+        // }
+        // event可變更其他參數
+    </script>
+</body>
+</html>
