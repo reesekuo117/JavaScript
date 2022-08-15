@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <input type="text">
+    <button onclick="loadData()">load data</button>
+    <div id="info"></div>
+
+    <script>
+        const info = document.querySelector('#info');
+
+        function loadData(){
+            const xhr = new XMLHttpRequest();
+            console.log('--------------1');
+            xhr.onload = function(){
+                console.log('--------------2');
+                info.innerHTML = xhr.responseText;
+                console.log(xhr.responseText);
+            }
+            //解決方法：使用 XMLHttpRequest 中的 onload 事件，該事件的意思是「當資料全部跑完以後，才會觸發此事件」
+
+            xhr.open('GET', './data/data.txt');  
+            // 設定
+            // xhr.open('格式','讀取網址','true')
+            xhr.send(); 
+            // 發送 request
+            console.log('--------------3');
+        }
+
+        // https://ithelp.ithome.com.tw/articles/10222165
+    </script>
+
+</body>
+</html>

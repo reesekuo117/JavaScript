@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regexp</title>
+</head>
+<body>
+    <script>
+        // /i區分大小寫
+        const pattern = /^[a-z]{2}\d{8}$/i;
+        const strs = [
+            'AH1234567890',
+            'BAH12345678',
+            'AH12345678',
+            '123AH1234567890',
+        ];
+
+        for(let v of strs){
+            console.log(v, pattern.test(v));
+        }
+        
+        // const password = /^(?=.*[^a-zA-Z0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/;
+        // 密碼 _ 高強度密碼，6 位數以上，並且至少包含大寫字母、小寫字母、數字、符號各一 _ 若需要調整，將其對應的小括號內容拿掉即可
+
+        const password = /^[a-z]{6}|\d{6}$/i;
+        //設定密碼6六字元 
+        
+        const str = [
+            'AH1234567890',
+            'Bh4565',
+            'AH12345678',
+            '123AH1234567890',
+        ];
+        for(let login of str){
+            console.log(login, pattern.test(login));
+        }
+        // https://blog.poychang.net/note-regular-expression/
+    </script>
+</body>
+</html>

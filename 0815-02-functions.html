@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>錯誤的堆疊</title>
+</head>
+<body>
+    <script>
+        function c(){
+            console.log('c -- begin');
+            console.log('c -- end');
+        }
+        function b(){
+            console.log('b -- begin');
+            c();
+            console.log('b -- end');
+        }
+        function a(){
+            console.log('a -- begin');
+            b();
+            console.log('a -- end');
+        }
+        a();
+        //function可堆疊
+        /*
+            console執行順序
+            a -- begin
+            b -- begin
+            c -- begin
+            c -- end
+            b -- end
+            a -- end
+        */
+
+
+        //在cc發生錯誤後會回推之前的function錯誤
+        function cc(){
+            console.log('cc -- begin');
+            throw new Error('自訂的錯誤');  // 丟出錯誤
+            console.log('cc -- end');
+        }
+
+        function bb(){
+            console.log('bb -- begin');
+            cc();
+            console.log('bb -- end');
+        }
+
+        function aa(){
+            console.log('aa -- begin');
+            bb();
+            console.log('aa -- end');
+        }
+
+        aa();
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try/catch</title>
+</head>
+<body>
+    <script>
+        // const str1 = '{"a":123}';
+        //正確寫法
+
+        const str2 = '{a:123}';
+        //錯誤寫法
+
+        let obj;
+
+
+        try {
+            obj = JSON.parse(str2);
+            console.log(obj);
+            //如果JSON是對的會執行裡面的obj
+            //str2錯誤所以執行下面的error
+        } catch(error){
+            console.log({error});
+        }
+
+        console.log(obj);
+        //未被定義undefined obj是區域變數在外面無法找到
+        
+    </script>
+</body>
+</html>
