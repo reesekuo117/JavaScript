@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>塗鴨 3</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid gray;
+            background-color: #bde0e7;
+        }
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(255, 251, 0);
+            border-radius: 50%;
+            /* border: 1px solid black; */
+            pointer-events: none;
+            /* 不感應滑鼠動作 */
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!--<div class="ball">88</div>-->
+    </div>
+    <input type="color" id="myColor">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+    const rect = $('.rect');
+
+    //顏色隨機函式
+    function randomColor() {
+        let c = '00000' + Math.floor(16777216 * Math.random()).toString(16);
+        return '#' + c.slice(c.length - 6);
+    }
+
+    const mDown = event=>{
+        rect.on('mousemove', mMove);
+    };
+    const mUp = event=>{
+        rect.off('mousemove', mMove);
+    };
+
+    const mMove = event=>{
+        const x = event.offsetX;
+        const y = event.offsetY;
+        const size = 10 + Math.floor(21*Math.random());
+        const bgc = randomColor();
+
+
+        const b = $(`<div class="ball"></div>`); // 建立元素
+        b.css({
+            backgroundColor: bgc,
+            width: size,
+            height: size,
+            left: x - size/2,
+            top: y - size/2
+        });
+        rect.append(b);
+
+    };
+
+    rect.on('mousedown', mDown);
+    $(window).on('mouseup', mUp);
+
+
+    //rect.on('mouseup', mUp); // 放開滑鼠動作如果沒在rect內失效
+
+    // rect.on('mousemove', function(event){
+
+    //     //offset 依被點擊的元素座標
+    //     const x = event.offsetX;
+    //     const y = event.offsetY;
+
+    //     const b = $(`<div class="ball"></div>`); // 建立元素
+    //     b.css({
+    //         left: x - 10,
+    //         top: y - 10,
+    //     });
+    //     // -10 讓滑鼠對準小球中心點
+    //     rect.append(b);
+    // });
+    
+    </script>
+</body>
+</html>

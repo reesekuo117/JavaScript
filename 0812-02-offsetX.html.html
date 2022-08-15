@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>mousemove(73頁)</title>
+    <style>
+        .big-ball {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: rgb(177, 237, 244);
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+
+        .rect {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 1px solid gray;
+            background-color: #cafbb5;
+            left: 100px;
+            top: 100px;
+        }
+
+        .ball {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="big-ball">
+        <div class="rect">
+            <div class="ball"></div>
+        </div>
+    </div>
+
+    <div id="info"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        const bigBall = document.querySelector('.big-ball');
+        const rect = document.querySelector('.rect');
+        const ball = document.querySelector('.ball');
+        
+
+        function handler(e){
+            $('#info').html(`
+                client: ${e.clientX}, ${e.clientY} <br>
+                page: ${e.pageX}, ${e.pageY} <br>
+                offset: ${e.offsetX}, ${e.offsetY} <br>
+            `)
+        }
+        //client 依顯示區
+        //page   依內容頁(會比顯示區大全部)
+        //offset 依被點擊的元素
+
+        // bigBall.addEventListener('mousemove', handler);
+        //偵測滑鼠在大球的座標
+
+        window.addEventListener('mousemove', handler);
+        //偵測滑鼠在整個視窗的座標
+    </script>
+</body>
+</html>
